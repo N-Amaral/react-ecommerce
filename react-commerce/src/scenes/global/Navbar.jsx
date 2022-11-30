@@ -16,7 +16,7 @@ const Navbar = () => {
       alignItems="center"
       width="100%"
       height="60px"
-      backgroundColor="rgba(255,255,255,0.95)"
+      backgroundColor={shades.primary[500]}
       color="black"
       position="fixed"
       top="0"
@@ -31,7 +31,8 @@ const Navbar = () => {
               cursor: "pointer",
             },
           }}
-          color={shades.secondary[500]}
+          color={shades.secondary[400]}
+          fontWeight="bold"
         >
           FAKESHOP
         </Box>
@@ -54,11 +55,17 @@ const Navbar = () => {
                   }}
                   key={i}
                 >
-                  <IconButton onClick={() => dispatch(setIsCartOpen({}))}>{el}</IconButton>
+                  <IconButton sx={{ color: shades.secondary[400] }} onClick={() => dispatch(setIsCartOpen({}))}>
+                    {el}
+                  </IconButton>
                 </Badge>
               );
             } else {
-              return <IconButton key={i}>{el}</IconButton>;
+              return (
+                <IconButton key={i} sx={{ color: shades.secondary[400] }}>
+                  {el}
+                </IconButton>
+              );
             }
           })}
         </Box>
